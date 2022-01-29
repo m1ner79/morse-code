@@ -103,7 +103,7 @@ function translate(file) {
 }
 
 function convert(morse, treeLevel) {
-    console.log(treeLevel);
+    
     let letter = "";
     let nextTreeLevel;
 
