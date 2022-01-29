@@ -3,57 +3,78 @@ const fs = require('fs');
 //reqiuired for user input
 const prompt = require('prompt-sync')({sigint: true});
 
-const morseCodeTree = () => {
+function morseCodeTree() {
     return [
-        'E',[
-            'I',[
-            'S',[
-                'H',[
-                '5',[null, null],
-                '4',[null, null]],
-                'V',[null,
-                '3',[null, null]]],
-            'U',[
-                'F',[null, null],
-                '',[null,
-                '2',[null, null]]]],
-            'A',[
-            'R',[
-                'L',[null, null],
-                '',[
-                '+',[null, null],
-                null]],
-            'W',[
-                'P',[null, null],
-                'J',[null,
-                '1',[null, null]]]]],
+        'E', [
+            'I', [
+                'S', [
+                    'H', [
+                        '5', [null, null],
+                        '4', [null, null]
+                    ],
+                    'V', [null,
+                        '3', [null, null]]
+                ],
+                'U', [
+                    'F', [null, null],
+                    '', [null,
+                        '2', [null, null]]
+                ]
+            ],
+            'A', [
+                'R', [
+                    'L', [null, null],
+                    '', [
+                        '+', [null, null],
+                        null
+                    ]
+                ],
+                'W', [
+                    'P', [null, null],
+                    'J', [null,
+                        '1', [null, null]]
+                ]
+            ]
+        ],
         'T', [
-            'N',[
-            'D',[
-                'B',[
-                '6',[null, null],
-                '=',[null, null]],
-                'X',[
-                '/',[null, null],
-                null]],
-            'K',[
-                'C',[null, null],
-                'Y',[null, null]]],
-            'M',[
-            'G',[
-                'Z',[
-                '7',[null, null],
-                null],
-                'Q',[null, null]],
-            'O',[
-                '',[
-                '8',[null, null],
-                null],
-                '',[
-                '9',[null, null],
-                '0',[null, null]]]]],
+            'N', [
+                'D', [
+                    'B', [
+                        '6', [null, null],
+                        '=', [null, null]
+                    ],
+                    'X', [
+                        '/', [null, null],
+                        null
+                    ]
+                ],
+                'K', [
+                    'C', [null, null],
+                    'Y', [null, null]
+                ]
+            ],
+            'M', [
+                'G', [
+                    'Z', [
+                        '7', [null, null],
+                        null
+                    ],
+                    'Q', [null, null]
+                ],
+                'O', [
+                    '', [
+                        '8', [null, null],
+                        null
+                    ],
+                    '', [
+                        '9', [null, null],
+                        '0', [null, null]
+                    ]
+                ]
+            ]
+        ],
     ];
-};
+}
 
 function read(file) {
 
@@ -82,7 +103,7 @@ function translate(file) {
 }
 
 function convert(morse, treeLevel) {
-    //console.log(treeLevel);
+    console.log(treeLevel);
     let letter = "";
     let nextTreeLevel;
 
@@ -90,17 +111,13 @@ function convert(morse, treeLevel) {
 
     if (dotDash === ".") {
       // left
-      // sound.play('beep.wav', { timeout: 100 }, function(err){
-      //   if (err) throw err
-      // })
+
     letter = treeLevel[0];
     nextTreeLevel = treeLevel[1];
       if (morse.length !== 0) return convert(morse, nextTreeLevel); //we travers further only if there are still some dots or dashes in the letter
     } else if (dotDash === "-") {
       //right
-      // sound.play('beep.wav', { timeout: 1000 }, function(err){
-      //   if (err) throw err
-      // })
+
     letter = treeLevel[2];
     nextTreeLevel = treeLevel[3];
       if (morse.length !== 0) return convert(morse, nextTreeLevel); //we travers further only if there are still some dots or dashes in the letter
@@ -130,11 +147,13 @@ while (userInput !== 0) {
     console.log('\n');
 
         // Get user input
-        const num  = prompt('Please enter a number from 1 to 5 or 0 to finish.\n');
+        const num  = prompt('Please enter a number from 1 to 5 or 0 to finish.');
+        console.log('\n');
          // Convert the string input to a number
         userInput = Number(num);
 
-        console.log('You selected ' , userInput , '\n');
+        console.log('You selected ' , userInput);
+        console.log('\n');
 
 
     switch (userInput) {

@@ -1,0 +1,23 @@
+{
+  "name": "morse-code",
+  "version": "1.0.0",
+  "description": "assignment",
+  "main": "morse.js",
+  "dependencies": {
+    "prompt-sync": "^4.1.6"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m1ner79/morse-code.git"
+  },
+  "author": "MG",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/m1ner79/morse-code/issues"
+  },
+  "homepage": "https://github.com/m1ner79/morse-code#readme",
+  "devDependencies": {}
+}
